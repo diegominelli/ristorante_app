@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:panucci_ristorante/cardapio.dart';
-import 'package:panucci_ristorante/components/highlight_item.dart';
+import 'package:panucci_ristorante/components/food_item.dart';
 
-class Hightlights extends StatelessWidget {
-  const Hightlights({super.key});
+class FoodMenu extends StatelessWidget {
+  const FoodMenu({super.key});
 
-  final List items = destaques;
+  final List items = comidas;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Hightlights extends StatelessWidget {
               bottom: 16.0,
             ),
             child: Text(
-              "Destaques",
+              "Menu",
               style: TextStyle(
                 fontFamily: "Caveat",
                 fontSize: 32,
@@ -30,11 +30,10 @@ class Hightlights extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return HighlightItem(
+                return FoodItem(
                   imageURI: items[index]["image"],
                   itemTitle: items[index]["name"],
                   itemPrice: items[index]["price"],
-                  itemDescription: items[index]["description"],
                 );
               },
               childCount: items.length,
