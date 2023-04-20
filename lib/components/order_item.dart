@@ -27,6 +27,8 @@ class _OrderItemState extends State<OrderItem> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Image(
+            height: 80,
+            width: 80,
             image: AssetImage(widget.imageURI),
             fit: BoxFit.cover,
           ),
