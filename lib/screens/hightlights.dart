@@ -11,16 +11,23 @@ class Hightlights extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return HighlightItem(
-            imageURI: itens[index]["image"],
-            itemTitle: itens[index]["name"],
-            itemPrice: itens[index]["price"],
-            itemDescription: itens[index]["description"],
-          );
-        },
-        itemCount: itens.length,
+      child: CustomScrollView(
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: Text("Destaques")),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return HighlightItem(
+                  imageURI: itens[index]["image"],
+                  itemTitle: itens[index]["name"],
+                  itemPrice: itens[index]["price"],
+                  itemDescription: itens[index]["description"],
+                );
+              },
+              childCount: itens.length,
+            ),
+          ),
+        ],
       ),
     );
   }
